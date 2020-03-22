@@ -16,24 +16,13 @@ import java.util.List;
 
 public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.RViewViewHolder> {
 
-    private static List<String> titles;
-    private static List<Integer> images;
-    private LayoutInflater inflater;
+    List<String> titles;
+    List<Integer> images;
+    LayoutInflater inflater;
 
     public RViewAdapter(Context context, List<String> titles, List<Integer> images) {
-        /*
-        * Remember!!!!
-        *
-        * Should be like the below if not static..
-        * we also used these variables in onClick method hence the static qualifier
-        *
-        * this.titles = titles;
-        * this.images = images;
-        *
-        * */
-
-        RViewAdapter.titles = titles;
-        RViewAdapter.images = images;
+        this.titles = titles;
+        this.images = images;
         this.inflater = LayoutInflater.from(context);
     }
 
@@ -56,7 +45,7 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.RViewViewHol
         return titles.size();
     }
 
-    public static class RViewViewHolder extends RecyclerView.ViewHolder {
+    public class RViewViewHolder extends RecyclerView.ViewHolder {
 
         TextView title;
         ImageView imageIcon;
